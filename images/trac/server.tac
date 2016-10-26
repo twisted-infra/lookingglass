@@ -11,7 +11,7 @@ sys.path.insert(0, dirname(__file__))
 
 from monitor import TracMonitor
 
-TRAC_URL = 'http://127.0.0.1:9881/trac/'
+TRAC_URL = 'http://127.0.0.1:9881/'
 TRAC_TIMEOUT = 30
 CHECK_INTERVAL = 30
 
@@ -20,12 +20,12 @@ application = service.Application('trac')
 # Setup trac server process monitor
 processMonitor = procmon.ProcessMonitor()
 processMonitor.addProcess('trac-server', [
-    '/opt/trac/venv/bin/twistd',
+    '/srv/trac/venv/bin/twistd',
     '--reactor', 'epoll',
-    '--logfile', '/opt/trac/log/trac-twistd.log',
-    '--pidfile', '/opt/trac/run/trac-twistd.pid',
-    '--rundir', '/opt/trac/run/',
-    '--python', '/opt/trac/trac_server.tac',
+    '--logfile', '/srv/trac/log/trac-twistd.log',
+    '--pidfile', '/srv/trac/run/trac-twistd.pid',
+    '--rundir', '/srv/trac/run/',
+    '--python', '/srv/trac/trac_server.tac',
     '--nodaemon',
 ], env=os.environ)
 processMonitor.setServiceParent(application)

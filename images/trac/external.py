@@ -39,7 +39,7 @@ class TracMixin:
         particular Trac environment via WSGI.
         """
         environ['trac.env_path'] = self.path
-        environ['trac.base_url'] = 'https://twistedmatrix.com/trac'
+        environ['trac.base_url'] = 'https://trac.twistedmatrix.com'
         return trac.web.main.dispatch_request(environ, start_response)
 
 
@@ -54,10 +54,7 @@ class RootResource(Resource):
 
 
     def getChildWithDefault(self, name, request):
-        if name != "trac":
-            return File("/dev/null")
-        if request.postpath and request.postpath[:1] == ["chrome"]:
-            request.postpath.pop(0)
+        if name == "chrome":
             return File(self.htdocs)
         else:
             return self.tracResource

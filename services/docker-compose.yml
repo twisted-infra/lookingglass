@@ -6,15 +6,18 @@ services:
     depends_on:
       - postgres
     volumes:
-      - tracconf:/opt/trac/trac-env/conf
-      - tracfiles:/opt/trac/trac-env/files
+      - /Users/red/code/lookingglass/services/tracconf:/srv/trac/trac-env/conf
+      - /Users/red/code/lookingglass/services/tracfiles:/srv/trac/trac-env/files
     networks:
       - internal
+      - external
+    ports:
+      - "9881:9881"
 
   postgres:
     image: postgres:latest
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - /Users/red/code/lookingglass/services/pgdata:/var/lib/postgresql/data
     networks:
       - internal
 volumes:
@@ -24,3 +27,5 @@ volumes:
 
 networks:
   internal:
+  external:
+    driver: bridge
