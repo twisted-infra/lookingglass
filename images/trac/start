@@ -4,8 +4,8 @@ ulimit -Sm $((1024 * 256))
 ulimit -Sm $((1024 * 256))
 ulimit -Sc unlimited
 
-/opt/trac/venv/bin/twistd -n \
-	--pidfile /opt/trac/run/twistd.pid \
-	--logfile /opt/trac/log/twistd.log \
-	--rundir /opt/trac/run \
-	--python /opt/trac/server.tac
+/srv/trac/venv/bin/twistd -n \
+	--pidfile /srv/trac/run/twistd.pid \
+	--logfile /srv/trac/log/twistd.log \
+	--rundir /srv/trac/run \
+	--python /srv/trac/server.tac

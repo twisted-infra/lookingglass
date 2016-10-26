@@ -25,6 +25,7 @@ COPY trac_server.tac /srv/trac/
 COPY start /srv/trac/
 COPY VERSION /srv/trac/trac-env
 COPY htdocs/ /srv/trac/trac-env/htdocs/
+COPY site.html /srv/trac/trac-env/templates
 
 EXPOSE 9881
 

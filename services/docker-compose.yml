@@ -20,6 +20,8 @@ services:
       - /Users/red/code/lookingglass/services/pgdata:/var/lib/postgresql/data
     networks:
       - internal
+    ports:
+      - "5432:5432"
 volumes:
   pgdata: {}
   tracconf: {}
