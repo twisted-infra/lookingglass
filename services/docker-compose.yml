@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  trac:
+    image: trac
+    depends_on:
+      - postgres
+    volumes:
+      - tracconf:/opt/trac/trac-env/conf
+      - tracfiles:/opt/trac/trac-env/files
+    networks:
+      - internal
+
+  postgres:
+    image: postgres:latest
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - internal
+volumes:
+  pgdata: {}
+  tracconf: {}
+  tracfiles: {}
+
+networks:
+  internal:
