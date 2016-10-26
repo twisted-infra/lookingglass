@@ -1,0 +1,7 @@
+Twisted==16.4.1
+psycopg2==2.6.2
+trac==1.0.12
+pygments==1.6
+git+https://github.com/twisted-infra/twisted-trac-plugins.git
+trac-github==2.1.5
+requests_oauthlib==0.6.1
