@@ -1,6 +1,13 @@
 version: '2'
 
 services:
+  names:
+    image: names
+    ports:
+      - "53:53"
+    networks:
+      - external
+
   trac:
     image: trac
     depends_on:
