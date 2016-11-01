@@ -1,0 +1,8 @@
+#!/bin/bash
+
+/srv/amptrac/venv/bin/twistd \
+    --rundir ~/run/ \
+    amptrac \
+    --postgres_db trac \
+    --postgres_host postgres \
+    --postgres_user amptrac

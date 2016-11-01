@@ -22,6 +22,15 @@ services:
     ports:
       - "9881:9881"
 
+  amptrac:
+    image: amptrac
+    depends_on:
+      - postgres
+    networks:
+      - internal
+    ports:
+      - "1352:1352"
+
   postgres:
     image: postgres:latest
     volumes:
@@ -30,6 +39,8 @@ services:
       - internal
     ports:
       - "5432:5432"
+
+
 volumes:
   pgdata: {}
   tracconf: {}
