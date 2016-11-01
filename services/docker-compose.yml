@@ -5,6 +5,7 @@ services:
     image: names
     ports:
       - "53:53"
+      - "53:53/udp"
     networks:
       - external
 
