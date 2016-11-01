@@ -1,0 +1,13 @@
+#!/bin/bash
+
+Z=/srv/names/zones
+export PYTHONPATH=$PYTHONPATH:$Z
+
+/srv/names/virtualenv/bin/twistd -n \
+    dns \
+    --pyzone $Z/twistedmatrix.com \
+    --pyzone $Z/divunal.com \
+    --pyzone $Z/ynchrono.us \
+    --pyzone $Z/divmod.com \
+    --pyzone $Z/divmod.org \
+    --pyzone $Z/crookedsapling.us
