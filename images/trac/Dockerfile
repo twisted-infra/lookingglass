@@ -1,31 +1,32 @@
 FROM python:2.7
 
 RUN mkdir -p /srv/trac
+ENV HOME /srv/trac
 WORKDIR /srv/trac
 
-COPY requirements.txt /srv/trac/
+COPY requirements.txt ./
 
 RUN python -m pip install -U virtualenv
 RUN python -m virtualenv venv
 RUN venv/bin/pip install --no-cache-dir -r requirements.txt
 
-RUN mkdir -p /srv/trac/log
-RUN mkdir -p /srv/trac/run
+RUN mkdir -p log
+RUN mkdir -p run
 
-RUN mkdir -p /srv/trac/trac-env
-RUN mkdir -p /srv/trac/trac-env/files
-RUN mkdir -p /srv/trac/trac-env/conf
-RUN mkdir -p /srv/trac/trac-env/templates
-RUN mkdir -p /srv/trac/trac-env/log
+RUN mkdir -p ./trac-env
+RUN mkdir -p ./trac-env/files
+RUN mkdir -p ./trac-env/conf
+RUN mkdir -p ./trac-env/templates
+RUN mkdir -p ./trac-env/log
 
-COPY monitor.py /srv/trac/
-COPY external.py /srv/trac/
-COPY server.tac /srv/trac/
-COPY trac_server.tac /srv/trac/
-COPY start /srv/trac/
-COPY VERSION /srv/trac/trac-env
-COPY htdocs/ /srv/trac/trac-env/htdocs/
-COPY site.html /srv/trac/trac-env/templates
+COPY monitor.py ./
+COPY external.py ./
+COPY server.tac ./
+COPY trac_server.tac ./
+COPY start ./
+COPY VERSION ./trac-env
+COPY htdocs/ ./trac-env/htdocs/
+COPY site.html ./trac-env/templates
 
 EXPOSE 9881
 
