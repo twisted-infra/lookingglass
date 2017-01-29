@@ -24,6 +24,7 @@ services:
 
   amptrac:
     image: amptrac
+    restart: always
     depends_on:
       - postgres
     networks:
