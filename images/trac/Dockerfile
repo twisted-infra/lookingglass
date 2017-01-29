@@ -27,6 +27,7 @@ COPY start ./
 COPY VERSION ./trac-env
 COPY htdocs/ ./trac-env/htdocs/
 COPY site.html ./trac-env/templates
+COPY kenaan/ /srv/kenaan/bin/
 
 EXPOSE 9881
 

@@ -32,6 +32,18 @@ services:
     ports:
       - "1352:1352"
 
+  kenaan:
+    image: kenaan
+    restart: always
+    volumes:
+      - ./kenaansecret:/srv/kenaan/private
+    networks:
+      - internal
+    depends_on:
+      - amptrac
+    ports:
+      - "15243:15243"
+
   postgres:
     image: postgres:latest
     volumes:

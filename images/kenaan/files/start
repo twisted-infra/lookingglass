@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/srv/kenaan/venv/bin/twistd -n \
+    --python /srv/kenaan/commit_bot.tac
