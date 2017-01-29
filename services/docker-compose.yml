@@ -14,8 +14,8 @@ services:
     depends_on:
       - postgres
     volumes:
-      - /Users/red/code/lookingglass/services/tracconf:/srv/trac/trac-env/conf
-      - /Users/red/code/lookingglass/services/tracfiles:/srv/trac/trac-env/files
+      - ./tracconf:/srv/trac/trac-env/conf
+      - ./tracfiles:/srv/trac/trac-env/files
     networks:
       - internal
       - external
@@ -35,7 +35,7 @@ services:
   postgres:
     image: postgres:latest
     volumes:
-      - /Users/red/code/lookingglass/services/pgdata:/var/lib/postgresql/data
+      - ./pgdata:/var/lib/postgresql/data
     networks:
       - internal
     ports:
