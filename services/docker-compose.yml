@@ -2,6 +2,7 @@ version: '2'
 
 services:
   names:
+    build: ../images/names
     image: names
     ports:
       - "53:53"
@@ -10,6 +11,7 @@ services:
       - external
 
   trac:
+    build: ../images/trac
     image: trac
     depends_on:
       - postgres
@@ -23,6 +25,7 @@ services:
       - "9881:9881"
 
   amptrac:
+    build: ../images/amptrac
     image: amptrac
     restart: always
     depends_on:
@@ -33,6 +36,7 @@ services:
       - "1352:1352"
 
   kenaan:
+    build: ../images/kenaan
     image: kenaan
     restart: always
     volumes:
