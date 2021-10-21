@@ -1,6 +1,5 @@
 FROM python:2.7
 
-RUN mkdir -p /srv/trac
 ENV HOME /srv/trac
 WORKDIR /srv/trac
 
